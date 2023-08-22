@@ -1,0 +1,15 @@
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { <%=domainClassName%>FacadeService } from '@ng-template-khan-esdras/<%=domain%>/data-access';
+
+@Component({
+  selector: 'ng-template-khan-esdras-<%=componentName%>',
+  standalone: true,
+  imports: [CommonModule],
+  template: `<p><%=componentClassName%> works!</p>`,
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class <%=componentClassName%>Component {
+  readonly #<%=domainClassName.toLowerCase()%>Facade = inject(<%=domainClassName%>FacadeService);
+}
