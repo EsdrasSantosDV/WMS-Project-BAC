@@ -1,63 +1,72 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {BaseUrl, materialModules} from '@ng-template-khan-esdras/shared/utils';
-
+import {
+  BaseUrl,
+  materialModules,
+} from '@ng-template-khan-esdras/shared/utils';
+import { HeaderComponent } from '@ng-template-khan-esdras/shared/ui';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'ng-template-khan-esdras-root',
   standalone: true,
-  imports: [CommonModule,...materialModules],
-  template: `<div class="font-mono">
-    <header class="px-xl py-md bg-primary-light text-xl font-bold shadow-md">Angular + Tailwind CSS + Nx</header>
-    <main class="max-w-xl md:max-w-2xl lg:max-w-6xl mx-auto py-xl px-md md:px-xl grid grid-cols-1 gap-md md:grid-cols-2 lg:grid-cols-3">
-      <div class="flex flex-col p-lg bg-secondary-light shadow-md hover:shadow-lg">
-        <button mat-raised-button color="accent">Accent</button>
-        <div class="pb-md text-lg font-bold">Angular</div>
-        <p class="mb-xl flex-1">
-          Angular is an application design framework and development platform for creating efficient and sophisticated single-page apps. hh d d sadsda dd ddd
-        </p>
-        <a
-          class="py-sm px-md bg-primary-dark hover:bg-primary text-white flex self-end"
-          href="https://angular.io/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Show me!
+  imports: [
+    CommonModule,
+    ...materialModules,
+    HeaderComponent,
+    RouterLink,
+    RouterOutlet,
+  ],
+  template: `<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav [mode]="'push'">
+      <mat-nav-list (click)="sidenav.close()">
+        <a mat-list-item routerLink="/">
+          <mat-icon>library_books</mat-icon>
+          <span>Books</span>
         </a>
-      </div>
 
-      <div class="flex flex-col p-lg bg-secondary-light shadow-md hover:shadow-lg">
-        <div class="pb-md text-lg font-bold">Tailwind CSS</div>
-        <p class="mb-xl flex-1">
-          Tailwind CSS is a utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
-        </p>
-        <a
-          class="py-sm px-md bg-primary-dark hover:bg-primary text-white flex self-end"
-          href="https://tailwindcss.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Show me!
+        <a mat-list-item routerLink="about">
+          <mat-icon>question_answer</mat-icon>
+          <span>About</span>
         </a>
-      </div>
 
-      <div class="flex flex-col p-lg bg-secondary-light shadow-md hover:shadow-lg">
-        <div class="pb-md text-lg font-bold">Nx</div>
-        <p class="mb-xl flex-1">
-          Nx is a smart, fast and extensible build system with first class monorepo support and powerful integrations.
-        </p>
-        <a
-          class="py-sm px-md bg-primary-dark hover:bg-primary text-white flex self-end"
-          href="https://nx.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Show me!
+        <a mat-list-item>
+          <mat-icon>person_add</mat-icon>
+          <span>Register</span>
         </a>
-      </div>
-    </main>
-  </div>`,
-  styles: [``],
+
+        <a mat-list-item>
+          <mat-icon>account_circle</mat-icon>
+          <span>Login</span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.open()">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <a mat-button>
+        <mat-icon>person_add</mat-icon>
+        Register
+      </a>
+
+      <a mat-button>
+        <mat-icon>account_circle</mat-icon>
+        Login
+      </a>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-container>`,
+  styles: [
+    `
+      mat-sidenav {
+        width: 400px;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
