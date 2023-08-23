@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   BaseUrl,
@@ -6,6 +11,7 @@ import {
 } from '@ng-template-khan-esdras/shared/utils';
 import { HeaderComponent } from '@ng-template-khan-esdras/shared/ui';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'ng-template-khan-esdras-root',
@@ -17,15 +23,14 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     RouterLink,
     RouterOutlet,
   ],
-  template: `<mat-sidenav-container fullscreen>
+  template: ` <mat-sidenav-container fullscreen>
     <mat-sidenav #sidenav [mode]="'push'">
-      <mat-nav-list (click)="sidenav.close()"> </mat-nav-list>
+      <mat-nav-list (click)="sidenav.close()"></mat-nav-list>
     </mat-sidenav>
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="sidenav.open()">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </mat-toolbar>
+
+    <ng-template-khan-esdras-header (sidenavOpen)="sidenavOpen()">
+    </ng-template-khan-esdras-header>
+
     <section>
       <router-outlet></router-outlet>
     </section>
@@ -41,4 +46,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   readonly baseUrl = inject(BaseUrl);
+
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  sidenavOpen() {
+    this.sidenav.open();
+  }
 }
