@@ -1,13 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnDestroy,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { materialModules } from '@ng-template-khan-esdras/shared/utils';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'ng-template-khan-esdras-header',
