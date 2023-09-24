@@ -13,12 +13,16 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule, ...materialModules, RouterLink],
   template: `
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="sidenavOpenEmit()">
-        <mat-icon>menu</mat-icon>
+    <mat-toolbar class="toolbar" color="primary">
+      <button
+        mat-icon-button
+        (click)="sidenavOpenEmit()"
+        class="toolbar__button"
+      >
+        <mat-icon class="toolbar__icon">menu</mat-icon>
       </button>
 
-      <div>
+      <div class="toolbar__links">
         <a routerLink="logistic">
           <span>Produto</span>
         </a>
@@ -31,7 +35,31 @@ import { RouterLink } from '@angular/router';
       </div>
     </mat-toolbar>
   `,
-  styles: [``],
+  styles: [
+    `
+      .toolbar {
+        &__button {
+          // styles for the button
+        }
+
+        &__icon {
+          // styles for the icon
+        }
+
+        &__links {
+          // styles for the link container
+          display: flex;
+          gap: 1rem;
+
+          > a {
+            // styles for the individual links
+            text-decoration: none;
+            color: inherit; // Or any desired color
+          }
+        }
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
