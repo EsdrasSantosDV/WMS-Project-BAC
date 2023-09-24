@@ -4,5 +4,15 @@
   gap: 1rem;
   margin: 1rem;
 
+  &__header, &__content {
+    width: 100%;
+  }
+
+  mat-card {
+    width: 100%;
+  }
+}
+.full-width {
+  width: 100%;
 
 }
