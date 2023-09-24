@@ -22,6 +22,22 @@
     "baseUrl": ".",
     "paths": {
       "@ng-template-khan-esdras/ddd": ["libs/plugins/ddd/src/index.ts"],
+      "@ng-template-khan-esdras/logistic/data-access": [
+        "libs/logistic/data-access/src/index.ts"
+      ],
+      "@ng-template-khan-esdras/logistic/feature-crud-feature": [
+        "libs/logistic/feature-crud-feature/src/index.ts"
+      ],
+      "@ng-template-khan-esdras/logistic/models": [
+        "libs/logistic/models/src/index.ts"
+      ],
+      "@ng-template-khan-esdras/logistic/routes": [
+        "libs/logistic/routes/src/index.ts"
+      ],
+      "@ng-template-khan-esdras/logistic/ui": ["libs/logistic/ui/src/index.ts"],
+      "@ng-template-khan-esdras/logistic/utils": [
+        "libs/logistic/utils/src/index.ts"
+      ],
       "@ng-template-khan-esdras/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@ng-template-khan-esdras/shared/ui-directives": [
         "libs/shared/ui-directives/src/index.ts"

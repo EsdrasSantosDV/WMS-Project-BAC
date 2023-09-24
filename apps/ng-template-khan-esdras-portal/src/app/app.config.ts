@@ -1,5 +1,9 @@
 import { provideHttpClient } from '@angular/common/http';
-import {ApplicationConfig, isDevMode} from '@angular/core';
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  isDevMode,
+} from '@angular/core';
 import {
   provideRouter,
   withComponentInputBinding,
@@ -7,13 +11,15 @@ import {
 } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideStore} from '@ngrx/store';
+import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import {provideRouterStore, RouterState} from '@ngrx/router-store';
+import { provideRouterStore, RouterState } from '@ngrx/router-store';
+import { IconsModule } from '@ng-template-khan-esdras/shared/ui';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    importProvidersFrom([IconsModule]),
     provideEffects(),
     provideStore(),
     provideRouter(
@@ -24,8 +30,8 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideHttpClient(),
     provideAnimations(),
-    provideRouterStore( {
-      stateKey: "router",
+    provideRouterStore({
+      stateKey: 'router',
       routerState: RouterState.Minimal,
     }),
     provideStoreDevtools({
