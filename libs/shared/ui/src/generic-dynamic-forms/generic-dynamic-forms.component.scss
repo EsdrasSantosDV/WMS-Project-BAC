@@ -1,13 +1,7 @@
 form {
-  display: flex;
-  flex-direction: row;
-  gap:1rem;
-  flex-wrap: wrap;
-
-
-  > * {
-    flex: 1;
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 }
 
 .no-padding::ng-deep .mat-form-field-wrapper {

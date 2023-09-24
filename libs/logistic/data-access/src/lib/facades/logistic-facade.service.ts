@@ -1,7 +1,7 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { LogisticState } from '../state/logistic-state.model';
 import { LogisticDataService } from '../data-services/logistic-data.service';
-import { of, tap } from 'rxjs';
+
 import {
   DropdownField,
   FieldBaseGeneric,
@@ -25,34 +25,10 @@ export class LogisticFacadeService {
   loadInitForms() {
     const fieldsForm: FieldBaseGeneric<string>[] = [
       new DropdownField({
-        key: 'brave',
-        label: 'Bravery Rating',
+        key: 'productType',
+        label: 'Tipo do Produto',
         options: [
-          { key: 'solid', value: 'Solid' },
-          { key: 'great', value: 'Great' },
-          { key: 'good', value: 'Good' },
-          { key: 'unproven', value: 'Unproven' },
-        ],
-        order: 3,
-      }),
-
-      new DropdownField({
-        key: 'test',
-        label: 'dassd',
-        options: [
-          { key: 'solid', value: 'Solid' },
-          { key: 'great', value: 'Great' },
-          { key: 'good', value: 'Good' },
-          { key: 'unproven', value: 'Unproven' },
-        ],
-        order: 3,
-      }),
-
-      new DropdownField({
-        key: 'teasdst',
-        label: 'dasssd',
-        options: [
-          { key: 'solid', value: 'Solid' },
+          { key: 'typeOne', value: '' },
           { key: 'great', value: 'Great' },
           { key: 'good', value: 'Good' },
           { key: 'unproven', value: 'Unproven' },
@@ -61,53 +37,37 @@ export class LogisticFacadeService {
       }),
 
       new TextBoxField({
-        key: 'firstName',
-        label: 'First name',
+        key: 'SKU do Produto',
+        label: 'SKU do Produto',
         value: '',
         required: true,
         order: 1,
       }),
 
-      new TextBoxField({
-        key: 'emailAddress',
-        label: 'Email',
-        type: 'email',
+      new DropdownField({
+        key: 'categoryProduct',
+        label: 'Categoria do Produto',
+        options: [
+          { key: 'solid', value: 'Solid' },
+          { key: 'great', value: 'Great' },
+          { key: 'good', value: 'Good' },
+          { key: 'unproven', value: 'Unproven' },
+        ],
         order: 2,
       }),
+
       new TextBoxField({
-        key: 'emailAddress',
-        label: 'Email',
-        type: 'email',
-        order: 2,
-      }),
-      new TextBoxField({
-        key: 'emailAddress',
-        label: 'Email',
-        type: 'email',
-        order: 2,
-      }),
-      new TextBoxField({
-        key: 'emailAddress',
-        label: 'Email',
-        type: 'email',
-        order: 2,
-      }),
-      new TextBoxField({
-        key: 'emailAddress',
-        label: 'Email',
-        type: 'email',
-        order: 2,
-      }),
-      new TextBoxField({
-        key: 'emailAddress',
-        label: 'Email',
-        type: 'email',
-        order: 2,
+        key: 'nameProduct',
+        label: 'Nome do Produto',
+        value: '',
+        required: true,
+        order: 1,
       }),
     ];
+
     this.#state.update((state) => ({
       ...state,
-      fieldsFilter: fieldsForm,
+      fieldsFilter: fieldsForm.sort((a, b) => a.order - b.order),
     }));
   }
 }
