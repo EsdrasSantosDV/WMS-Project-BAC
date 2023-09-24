@@ -37,7 +37,7 @@ export class LogisticFacadeService {
       }),
 
       new TextBoxField({
-        key: 'SKU do Produto',
+        key: 'skuProduct',
         label: 'SKU do Produto',
         value: '',
         required: true,

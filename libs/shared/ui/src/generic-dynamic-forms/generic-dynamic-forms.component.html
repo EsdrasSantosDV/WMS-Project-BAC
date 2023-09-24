@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
+<form [formGroup]="form">
   <div *ngFor="let field of fieldsGeneric">
     <ng-template-khan-esdras-generic-control-dynamic
       [fieldGeneric]="field"
