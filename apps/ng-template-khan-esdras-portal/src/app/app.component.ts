@@ -25,7 +25,7 @@ import { MatSidenav } from '@angular/material/sidenav';
   ],
   template: ` <mat-sidenav-container fullscreen>
     <mat-sidenav #sidenav [mode]="'push'">
-      <mat-nav-list (click)="sidenav.close()"></mat-nav-list>
+      <mat-nav-list (click)="sidenav.close()"> </mat-nav-list>
     </mat-sidenav>
 
     <ng-template-khan-esdras-header (sidenavOpen)="sidenavOpen()">
