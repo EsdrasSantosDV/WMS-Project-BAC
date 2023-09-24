@@ -1,0 +1,15 @@
+form {
+  display: flex;
+  flex-direction: row;
+  gap:1rem;
+  flex-wrap: wrap;
+
+
+  > * {
+    flex: 1;
+  }
+}
+
+.no-padding::ng-deep .mat-form-field-wrapper {
+  padding: 0 !important;
+}

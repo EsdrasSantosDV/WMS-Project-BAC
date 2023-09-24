@@ -23,25 +23,8 @@ import { MatSidenav } from '@angular/material/sidenav';
     RouterLink,
     RouterOutlet,
   ],
-  template: ` <mat-sidenav-container fullscreen>
-    <mat-sidenav #sidenav [mode]="'push'">
-      <mat-nav-list (click)="sidenav.close()"> </mat-nav-list>
-    </mat-sidenav>
-
-    <ng-template-khan-esdras-header (sidenavOpen)="sidenavOpen()">
-    </ng-template-khan-esdras-header>
-
-    <section>
-      <router-outlet></router-outlet>
-    </section>
-  </mat-sidenav-container>`,
-  styles: [
-    `
-      mat-sidenav {
-        width: 400px;
-      }
-    `,
-  ],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {

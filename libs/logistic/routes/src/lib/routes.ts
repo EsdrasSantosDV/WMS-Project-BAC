@@ -5,6 +5,11 @@ export const routes: Routes = [
     path: '',
     children: [
       {
+        path: '',
+        redirectTo: 'products',
+        pathMatch: 'full',
+      },
+      {
         path: 'products',
         loadComponent: async () =>
           (
