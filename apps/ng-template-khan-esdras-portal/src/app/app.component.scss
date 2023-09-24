@@ -1,0 +1,13 @@
+mat-sidenav-container {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-sidenav {
+  width: 400px;
+}
+
+section {
+  flex: 1;
+  overflow: auto;
+}

@@ -6,8 +6,8 @@ import { materialModules } from '@ng-template-khan-esdras/shared/utils';
   selector: 'ng-template-khan-esdras-home',
   standalone: true,
   imports: [CommonModule, ...materialModules],
-  template: ` Home `,
-  styles: [``],
+  templateUrl: '/home.component.html',
+  styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {}
