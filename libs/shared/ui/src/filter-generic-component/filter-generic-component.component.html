@@ -10,10 +10,7 @@
     <ng-template-khan-esdras-generic-dynamic-forms
       class="full-width"
       [fieldsGeneric]="fieldsGeneric"
+      (formEmitValues)="submitAction($event)"
     ></ng-template-khan-esdras-generic-dynamic-forms>
   </mat-card-content>
-  <mat-card-actions align="end">
-    <button mat-raised-button color="primary">Limpar Filtros</button>
-    <button mat-raised-button color="primary">Buscar</button>
-  </mat-card-actions>
 </mat-card>

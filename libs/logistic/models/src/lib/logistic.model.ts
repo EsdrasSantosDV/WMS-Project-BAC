@@ -1,2 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface Logistic {}
+import { ProductDto } from './dtos/logistic.model';
+
+export interface Product extends ProductDto {}

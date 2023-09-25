@@ -1,8 +1,9 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BaseUrl } from '@ng-template-khan-esdras/shared/utils';
-
-type LogisticType = unknown;
+import { ProductDto } from '@ng-template-khan-esdras/logistic/models';
+import { Observable } from 'rxjs';
+import { MockDataLogisticService } from '../mock-data.service/mock-data-logistic.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +11,10 @@ type LogisticType = unknown;
 export class LogisticDataService {
   readonly #http = inject(HttpClient);
   readonly #baseUrl = inject(BaseUrl);
+  readonly #mockService = inject(MockDataLogisticService);
 
-  get(id: string) {
-    return this.#http.get<LogisticType>(`${this.#baseUrl}/logistic/${id}`);
-  }
-
-  getAll() {
-    return this.#http.get<LogisticType[]>(`${this.#baseUrl}/logistics`);
+  getAll(): Observable<ProductDto[]> {
+    //return this.#http.get<ProductDto[]>(`${this.#baseUrl}/logistics`);
+    return this.#mockService.getAll();
   }
 }

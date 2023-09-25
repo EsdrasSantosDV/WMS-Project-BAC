@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  Injector,
+  Input,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FieldBaseGeneric,
@@ -6,6 +14,8 @@ import {
 } from '@ng-template-khan-esdras/shared/utils';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GenericDynamicFormsComponent } from '../generic-dynamic-forms/generic-dynamic-forms.component';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ng-template-khan-esdras-filter-generic-component',
@@ -23,4 +33,6 @@ import { GenericDynamicFormsComponent } from '../generic-dynamic-forms/generic-d
 export class FilterGenericComponentComponent {
   @Input({ required: true }) formHeaderTitle!: string;
   @Input({ required: true }) fieldsGeneric: FieldBaseGeneric<string>[] = [];
+
+  submitAction($event: any) {}
 }
