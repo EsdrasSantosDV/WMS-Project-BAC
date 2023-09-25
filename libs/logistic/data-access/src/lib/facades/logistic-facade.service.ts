@@ -7,9 +7,12 @@ import {
   FieldBaseGeneric,
   TextBoxField,
 } from '@ng-template-khan-esdras/shared/utils';
+import { map, of, tap } from 'rxjs';
+import { Product } from '@ng-template-khan-esdras/logistic/models';
 
 const initialState: Readonly<LogisticState> = {
   fieldsFilter: [],
+  products: [],
 };
 
 @Injectable({
@@ -20,7 +23,23 @@ export class LogisticFacadeService {
 
   readonly #state = signal(initialState);
 
+  readonly products = computed(() => this.#state().products);
+
   readonly fieldsFilter = computed(() => this.#state().fieldsFilter);
+
+  loadProducts() {
+    return this.#logisticDataService.getAll().pipe(
+      map((products) =>
+        products.map((c) => {
+          const product: Product = {
+            ...c,
+          };
+          return product;
+        })
+      ),
+      tap((products) => this.#state.update((state) => ({ ...state, products })))
+    );
+  }
 
   loadInitForms() {
     const fieldsForm: FieldBaseGeneric<string>[] = [
@@ -65,9 +84,13 @@ export class LogisticFacadeService {
       }),
     ];
 
-    this.#state.update((state) => ({
-      ...state,
-      fieldsFilter: fieldsForm.sort((a, b) => a.order - b.order),
-    }));
+    return of(fieldsForm.sort((a, b) => a.order - b.order)).pipe(
+      tap((value) => {
+        this.#state.update((state) => ({
+          ...state,
+          fieldsFilter: value,
+        }));
+      })
+    );
   }
 }

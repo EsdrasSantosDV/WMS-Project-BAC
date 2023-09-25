@@ -1,4 +1,4 @@
-<form [formGroup]="form" >
+<form [formGroup]="form">
   <ng-container [ngSwitch]="fieldGeneric.controlType">
     <ng-container *ngSwitchCase="TypeControlEnum.TEXT_BOX">
       <mat-form-field appearance="outline" class="full-width no-padding">
@@ -19,6 +19,7 @@
           [formControlName]="fieldGeneric.key"
           disableOptionCentering
           disableRipple
+          [multiple]="true"
         >
           <mat-option
             *ngFor="let opt of fieldGeneric.options"

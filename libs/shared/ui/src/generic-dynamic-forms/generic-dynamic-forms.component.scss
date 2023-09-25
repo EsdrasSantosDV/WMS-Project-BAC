@@ -7,3 +7,11 @@ form {
 .no-padding::ng-deep .mat-form-field-wrapper {
   padding: 0 !important;
 }
+
+
+.form-actions{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap:1rem;
+}

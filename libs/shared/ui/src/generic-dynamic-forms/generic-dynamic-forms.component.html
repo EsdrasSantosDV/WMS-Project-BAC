@@ -1,9 +1,18 @@
-<form [formGroup]="form">
-  <div *ngFor="let field of fieldsGeneric">
-    <ng-template-khan-esdras-generic-control-dynamic
-      [fieldGeneric]="field"
-      [form]="form"
-    ></ng-template-khan-esdras-generic-control-dynamic>
+<ng-container>
+  <form [formGroup]="form">
+    <div *ngFor="let field of fieldsGeneric">
+      <ng-template-khan-esdras-generic-control-dynamic
+        [fieldGeneric]="field"
+        [form]="form"
+      ></ng-template-khan-esdras-generic-control-dynamic>
+    </div>
+  </form>
+  <div class="form-actions">
+    <button mat-raised-button color="primary" (click)="resetForm()">
+      Limpar Filtros
+    </button>
+    <button mat-raised-button color="primary" (click)="searchFilters()">
+      Buscar
+    </button>
   </div>
-</form>
-
+</ng-container>

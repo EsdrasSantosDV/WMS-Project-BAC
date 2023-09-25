@@ -30,34 +30,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./filter-generic-component.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FilterGenericComponentComponent implements OnInit {
+export class FilterGenericComponentComponent {
   @Input({ required: true }) formHeaderTitle!: string;
   @Input({ required: true }) fieldsGeneric: FieldBaseGeneric<string>[] = [];
-  private injector = inject(Injector);
-  readonly signalReset = signal<boolean>(false);
-  signalReset$: Observable<boolean> = new Observable<boolean>();
 
-  readonly signalSubmit = signal<boolean>(false);
-  signalSubmit$: Observable<boolean> = new Observable<boolean>();
-
-  resetForm() {
-    this.signalReset.update((value) => !value);
-  }
-  searchFilters() {
-    this.signalSubmit.update((value) => !value);
-  }
-
-  ngOnInit(): void {
-    this.signalReset$ = toObservable(this.signalReset, {
-      injector: this.injector,
-    });
-
-    this.signalSubmit$ = toObservable(this.signalSubmit, {
-      injector: this.injector,
-    });
-  }
-
-  submitAction($event: any) {
-    console.log($event);
-  }
+  submitAction($event: any) {}
 }
