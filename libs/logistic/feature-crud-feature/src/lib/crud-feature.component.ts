@@ -5,11 +5,12 @@ import { materialModules } from '@ng-template-khan-esdras/shared/utils';
 import { FilterGenericComponentComponent } from '@ng-template-khan-esdras/shared/ui';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { combineLatest } from 'rxjs';
+import {TableProductsComponent} from "../../../ui/src/lib/table-products/table-products.component";
 
 @Component({
   selector: 'ng-template-khan-esdras-crud-feature',
   standalone: true,
-  imports: [CommonModule, ...materialModules, FilterGenericComponentComponent],
+  imports: [CommonModule, ...materialModules, FilterGenericComponentComponent, TableProductsComponent],
   templateUrl: './crud-feature.component.html',
   styleUrls: ['./crud-feature.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

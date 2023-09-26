@@ -13,7 +13,7 @@ export class MockDataLogisticService {
   private products: ProductDto[] = [];
 
   constructor() {
-    for (let i = 0; i < 50000; i++) {
+    for (let i = 0; i < 5; i++) {
       this.products.push(this.generateRandomProduct());
     }
   }
