@@ -1,40 +1,92 @@
-table {
-  width: 100%; // Ensure the table takes the full width of its parent.
-  border-collapse: collapse; // Collapse borders for a cleaner look.
+.card-table {
+  overflow-x: auto;
+  max-height: 400px;
+  overflow-y: auto;
 
-  // Styling the header row
-  .mat-header-row {
-    background-color: #0b0938;
-    color: #ffffff;
 
-    th {
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 12px; // Adjust padding for header cells.
-      text-align: center;
+  &.tr:not(:has(th)):nth-child(even) {
+    background-color: #fafafa;
+  }
 
-      &:first-child {
-        border-top-left-radius: 0.25rem;
-      }
 
-      &:last-child {
-        border-top-right-radius: 0.25rem;
-      }
+  td {
+    border-bottom: none;
+    padding: 0px 12px;
+
+    &:first-child {
+      border-left: 3px solid #0b0938;
+    }
+
+    .container-value {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
 
-  // Styling the data rows
+
   .mat-row {
-    color: #1f1f1f;
+    .type-commodity {
+      display: flex;
+      align-items: center;
 
-    td {
-      padding: 0px 12px; // Adjust padding for data cells.
-      text-align: center;
-      min-width: 150px;
-
-      &:first-child {
-        border-left: 3px solid #0b0938;
+      img {
+        width: 1rem;
+        font-size: 1rem;
+        font-weight: 400;
       }
     }
   }
+}
+table {
+  overflow-x: auto;
+  overflow-y: auto;
+
+
+
+}
+
+
+.mat-footer-row {
+  background-color: #f4f5f7;
+
+  td:first-child {
+    border: none;
+
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+
+::ng-deep .mat-header-row {
+  background-color: #3b4f79;
+
+  th {
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0px 12px;
+    text-align: left;
+
+    &:first-child {
+      border-top-left-radius: 0.25rem;
+    }
+
+    &:last-child {
+      border-top-right-radius: 0.25rem;
+      background: #0b0938;
+    }
+  }
+}
+
+::ng-deep.header-column {
+  background-color: #090243 !important;
+  color:white;
+}
+
+.mat-table {
+  border-spacing: 0px 3px;
 }
