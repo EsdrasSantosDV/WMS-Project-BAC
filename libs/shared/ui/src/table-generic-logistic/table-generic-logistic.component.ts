@@ -1,8 +1,13 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, Input, OnInit, signal, ViewChild} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 import {
-  MatPaginatorModule} from "@angular/material/paginator";
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+  signal,
+} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'ng-template-khan-esdras-table-generic-logistic',
@@ -10,20 +15,14 @@ import {
   imports: [CommonModule, MatPaginatorModule, MatTableModule],
   templateUrl: './table-generic-logistic.component.html',
   styleUrls: ['./table-generic-logistic.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TableGenericLogisticComponent  implements OnInit{
-  @Input() tableData:any;
-  columnsGeneric=signal<string[]>([]);
-  dataSource: any;
+export class TableGenericLogisticComponent implements OnInit {
+  @Input() tableData: any;
+  columnsGeneric = signal<string[]>([]);
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.tableData);
-    this.columnsGeneric.update(()=> Object.keys(this.tableData[0]));
+    if (this.tableData && this.tableData.length) {
+      this.columnsGeneric.update(() => Object.keys(this.tableData[0]));
+    }
   }
-
-
-
-
-
-
 }
