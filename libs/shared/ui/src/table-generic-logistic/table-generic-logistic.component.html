@@ -1,13 +1,12 @@
 <div class="card-table">
   <table>
-    <!-- Cabeçalho da tabela -->
+    
     <thead>
     <tr>
       <th *ngFor="let header of columnsGeneric()" class="header-column">{{ header }}</th>
     </tr>
     </thead>
 
-    <!-- Corpo da tabela -->
     <tbody>
     <tr *ngFor="let row of tableData">
       <td *ngFor="let col of columnsGeneric()">{{ row[col] }}</td>

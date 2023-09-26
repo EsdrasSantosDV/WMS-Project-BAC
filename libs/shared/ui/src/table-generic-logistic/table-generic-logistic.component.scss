@@ -13,15 +13,13 @@
       tr {
         background-color: #3b4f79;
         height: 4rem;
+
         th.header-column {
           background: #3f51b5;
-          color:white;
+          color: white;
           padding: 8px 12px;
           text-align: left;
 
-          &:first-child {
-            border-top-left-radius: 0.25rem;
-          }
 
         }
       }
@@ -39,7 +37,7 @@
           text-align: left;
 
           &:first-child {
-            border-left: 3px solid #0b0938;
+            border-left: 3px solid #3b4f79;
           }
 
           .container-value {
@@ -52,29 +50,5 @@
       }
     }
 
-    // Aqui, estilos adicionais baseados no que você forneceu
-    .text-center {
-      text-align: center !important;
-    }
-
-    .flex-column {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .week-day-header {
-      display: flex;
-      flex-direction: column;
-
-      .week-day {
-        padding: 0.5rem;
-        background-color: #0b0938;
-      }
-
-      .week-date {
-        padding: 0.5rem;
-      }
-    }
   }
 }
