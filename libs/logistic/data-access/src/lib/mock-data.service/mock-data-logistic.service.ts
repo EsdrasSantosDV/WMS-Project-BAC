@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import {
   ProductDto,
@@ -13,7 +13,7 @@ export class MockDataLogisticService {
   private products: ProductDto[] = [];
 
   constructor() {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 50; i++) {
       this.products.push(this.generateRandomProduct());
     }
   }
@@ -29,7 +29,7 @@ export class MockDataLogisticService {
       description: `Description ${Math.floor(Math.random() * 1000)}`,
       itemsInStock: Math.floor(Math.random() * 100),
       manufacturingDate: new Date(
-        +new Date() - Math.floor(Math.random() * 10000000000)
+        +new Date() - Math.floor(Math.random() * 10000000000),
       ),
       dueDate: new Date(+new Date() + Math.floor(Math.random() * 10000000000)),
       price: +(Math.random() * 100).toFixed(2),

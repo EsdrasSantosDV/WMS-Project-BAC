@@ -1,92 +1,80 @@
+
 .card-table {
   overflow-x: auto;
   max-height: 400px;
   overflow-y: auto;
 
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
 
-  &.tr:not(:has(th)):nth-child(even) {
-    background-color: #fafafa;
-  }
+    thead {
+      tr {
+        background-color: #3b4f79;
+        height: 4rem;
+        th.header-column {
+          background: #3f51b5;
+          color:white;
+          padding: 8px 12px;
+          text-align: left;
 
+          &:first-child {
+            border-top-left-radius: 0.25rem;
+          }
 
-  td {
-    border-bottom: none;
-    padding: 0px 12px;
-
-    &:first-child {
-      border-left: 3px solid #0b0938;
+        }
+      }
     }
 
-    .container-value {
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: #fafafa;
+        }
+
+        td {
+          border: 1px solid #e0e0e0;
+          padding: 8px 12px;
+          text-align: left;
+
+          &:first-child {
+            border-left: 3px solid #0b0938;
+          }
+
+          .container-value {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    // Aqui, estilos adicionais baseados no que você forneceu
+    .text-center {
+      text-align: center !important;
+    }
+
+    .flex-column {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      justify-content: space-between;
     }
-  }
 
-
-  .mat-row {
-    .type-commodity {
+    .week-day-header {
       display: flex;
-      align-items: center;
+      flex-direction: column;
 
-      img {
-        width: 1rem;
-        font-size: 1rem;
-        font-weight: 400;
+      .week-day {
+        padding: 0.5rem;
+        background-color: #0b0938;
+      }
+
+      .week-date {
+        padding: 0.5rem;
       }
     }
   }
-}
-table {
-  overflow-x: auto;
-  overflow-y: auto;
-
-
-
-}
-
-
-.mat-footer-row {
-  background-color: #f4f5f7;
-
-  td:first-child {
-    border: none;
-
-    span {
-      font-weight: 600;
-    }
-  }
-}
-
-
-::ng-deep .mat-header-row {
-  background-color: #3b4f79;
-
-  th {
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 0px 12px;
-    text-align: left;
-
-    &:first-child {
-      border-top-left-radius: 0.25rem;
-    }
-
-    &:last-child {
-      border-top-right-radius: 0.25rem;
-      background: #0b0938;
-    }
-  }
-}
-
-::ng-deep.header-column {
-  background-color: #090243 !important;
-  color:white;
-}
-
-.mat-table {
-  border-spacing: 0px 3px;
 }

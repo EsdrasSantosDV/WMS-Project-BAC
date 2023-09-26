@@ -1,22 +1,17 @@
-<div class="card-table ">
-  <table [dataSource]="dataSource" mat-table  multiTemplateDataRows>
-    <ng-container
-      *ngFor="let tableData of columnsGeneric();index as i"
-      [matColumnDef]="tableData"
-    >
+<div class="card-table">
+  <table>
+    <!-- Cabeçalho da tabela -->
+    <thead>
+    <tr>
+      <th *ngFor="let header of columnsGeneric()" class="header-column">{{ header }}</th>
+    </tr>
+    </thead>
 
-      <ng-container [ngSwitch]="tableData">
-        <ng-container *ngSwitchDefault>
-          <th *matHeaderCellDef class="header-column" mat-header-cell>
-            {{columnsGeneric()[i]}}
-          </th>
-          <td *matCellDef="let element" mat-cell>{{element[tableData] }}</td>
-        </ng-container>
-      </ng-container>
-    </ng-container>
-
-    <tr *matHeaderRowDef="columnsGeneric()" mat-header-row></tr>
-    <tr *matRowDef="let row; columns: columnsGeneric();" mat-row></tr>
+    <!-- Corpo da tabela -->
+    <tbody>
+    <tr *ngFor="let row of tableData">
+      <td *ngFor="let col of columnsGeneric()">{{ row[col] }}</td>
+    </tr>
+    </tbody>
   </table>
 </div>
-

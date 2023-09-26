@@ -6,7 +6,7 @@ import {
   signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
@@ -20,9 +20,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 export class TableGenericLogisticComponent implements OnInit {
   @Input() tableData: any;
   columnsGeneric = signal<string[]>([]);
-  dataSource: any;
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.tableData);
-    this.columnsGeneric.update(() => Object.keys(this.tableData[0]));
+    if (this.tableData && this.tableData.length) {
+      this.columnsGeneric.update(() => Object.keys(this.tableData[0]));
+    }
   }
 }
